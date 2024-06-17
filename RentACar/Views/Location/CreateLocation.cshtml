@@ -1,0 +1,30 @@
+﻿@model RentACar.Features.CQRS.Commands.LocationCommands.CreateLocationCommand
+
+@{
+    ViewData["Title"] = "CreateLocation";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Lokasyon Ekle</h4>
+                        <p class="card-subtitle mb-4">Lokasyon Ekleme işlemini burdan yapabilirsiniz. Veri girişinden sonra Güncelle butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="Name">Lokasyon Adı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Name">
+                            </div>
+                            <br />
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

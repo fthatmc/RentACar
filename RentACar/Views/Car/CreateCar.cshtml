@@ -1,0 +1,80 @@
+﻿@model CreateCarCommand
+
+@{
+    ViewData["Title"] = "CreateCar";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Araç Ekle</h4>
+                        <p class="card-subtitle mb-4">Araç Ekleme işlemini burdan yapabilirsiniz. Veri girişinden sonra Güncelle butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="Name">Marka Adı</label>
+                                @Html.DropDownListFor(x => x.BrandID, (List<SelectListItem>)ViewBag.brand, "Marka", new { @class = "custom-select form-control" })
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">Model Adı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Model">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">Resim URL</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="CoverImageUrl">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">KM</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Km">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">Vites</label>
+                               <input type="text" class="form-control" id="exampleInputName" asp-for="Transmission">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">Yolcu Sayısı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Passenger">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">Kapı Sayısı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Door">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">Valiz Sayısı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Luggage">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">Yakıtı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Fuel">
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <label for="Name">Ücreti</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Price">
+                            </div>
+                            <br />
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Ekle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

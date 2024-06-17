@@ -1,0 +1,81 @@
+﻿@model List<GetCarQueryResult>
+
+@{
+    ViewData["Title"] = "CarList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+}
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Araç Listesi</h4>
+                        <p class="card-subtitle mb-4">
+                            Araç ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Resim</th>
+                                        <th>Marka</th>
+                                        <th>Model</th>
+                                        <th>KM</th>
+                                        <th>Vites</th>
+                                        <th>Yolcu Sayısı</th>
+                                        <th>Kapı Sayısı</th>
+                                        <th>Valiz Kapasitesi</th>
+                                        <th>Yakıt</th>
+                                        <th>Ücret</th>
+                                        <th>Sil</th>
+                                        <th>Güncele</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <th scope="row">@count</th>
+
+                                            <td><img class="rounded-circle header-profile-user" alt="" src="@item.CoverImageUrl" /></td>
+                                            <td>@item.Brand</td>
+                                            <td>@item.Model</td>
+                                            <td>@item.Km</td>
+                                            <td>@item.Transmission</td>
+                                            <td>@item.Passenger</td>
+                                            <td>@item.Door</td>
+                                            <td>@item.Luggage</td>
+                                            <td>@item.Fuel</td>
+                                            <td>@item.Price</td>
+                                            <td><a href="/Car/RemoveCar/@item.CarID/" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Car/UpdateCar/@item.CarID/" class="btn btn-outline-info">Güncelle</a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <br />
+                            
+                        </div>
+                        <br />
+                        <a href="/Car/CreateCar/" class="btn btn-outline-success">Ekle</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+

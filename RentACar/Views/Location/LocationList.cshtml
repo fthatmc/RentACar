@@ -1,0 +1,74 @@
+﻿﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@model IPagedList<RentACar.Features.CQRS.Results.LocationResults.GetLocationQueryResult>
+
+@{
+    ViewData["Title"] = "LocationList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Lokasyon Listesi</h4>
+                        <p class="card-subtitle mb-4">
+                            Lokayon ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Lokasyon Adı</th>
+                                        <th>Sil</th>
+                                        <th>Güncele</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        
+                                        <tr>
+                                            <td>@item.LocationID</td>
+                                            <td>@item.Name</td>
+                                            <td><a href="/Location/RemoveLocation/@item.LocationID/" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Location/UpdateLocation/@item.LocationID/" class="btn btn-outline-info">Güncelle</a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <br />
+                            <tr>
+                                <td>
+                                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("LocationList", new { page }), new X.PagedList.Web.Common.PagedListRenderOptionsBase
+                               {
+                                   ContainerDivClasses = new[] { "navigation" },
+                                   LiElementClasses = new[] { "page-item" },
+                                   PageClasses = new[] { "page-link" },
+                               })
+                                </td>
+                            </tr>
+
+                        </div>
+                        <br />
+                        <a href="/Location/CreateLocation/" class="btn btn-outline-success">Ekle</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+

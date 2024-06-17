@@ -1,0 +1,71 @@
+﻿﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@model IPagedList<RentACar.Features.CQRS.Results.BrandResults.GetBrandQueryResult>
+
+@{
+    ViewData["Title"] = "BrandList";
+    Layout = "~/Views/Admin/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Marka Listesi</h4>
+                        <p class="card-subtitle mb-4">
+                            Marka ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Marka Adı</th>
+                                        <th>Sil</th>
+                                        <th>Güncele</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <th scope="row">@count</th>
+                                            <td>@item.Name</td>
+                                            <td><a href="/Brand/RemoveBrand/@item.BrandID/" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Brand/UpdateBrand/@item.BrandID/" class="btn btn-outline-info">Güncelle</a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <br />
+                            <tr>
+                                <td>
+                                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("BrandList", new { page }), new X.PagedList.Web.Common.PagedListRenderOptionsBase
+                               {
+                                   ContainerDivClasses = new[] { "navigation" },
+                                   LiElementClasses = new[] { "page-item" },
+                                   PageClasses = new[] { "page-link" },
+                               })
+                                </td>
+                            </tr>
+                        </div>
+                        <br />
+                        <a href="/Brand/CreateBrand/" class="btn btn-outline-success">Ekle</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
