@@ -1,3 +1,15 @@
+# RentACar
+
+## Projenin Amacı
+Bu projede sistemde kayıtlı bütün araçlar ve araçlara ait teknik bilgilere göz atabilir, istediğiniz lokasyonlar ve tarihlere göre (teslim alınan/edilen) araçları filtreleyebilirsiniz. Projenin temel amacı ise CQRS ve Mediator Design Pattern'in uygulanarak öğrenilmesidir.
+
+## Öne Çıkan Teknolojiler
+- AspNet Core 6.0
+- Entity Framework Core
+- CQRS Design Pattern
+- Mediator Design Pattern
+- MsSql
+
 ![1](https://github.com/fthatmc/RentACar/assets/136472585/343353b8-37dd-43b4-87f0-9728c20fbbf2)
 ![2](https://github.com/fthatmc/RentACar/assets/136472585/a6e9a11f-652c-440d-a6bd-3854f63f4d3a)
 ![13](https://github.com/fthatmc/RentACar/assets/136472585/2afd9e36-faad-4950-b58a-a0443b4edd47)
