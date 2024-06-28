@@ -8,6 +8,7 @@ Bu projede sistemde kayıtlı bütün araçlar ve araçlara ait teknik bilgilere
 - Entity Framework Core
 - CQRS Design Pattern
 - Mediator Design Pattern
+- Repository Design Pattern
 - MsSql
 
 ![1](https://github.com/fthatmc/RentACar/assets/136472585/343353b8-37dd-43b4-87f0-9728c20fbbf2)
